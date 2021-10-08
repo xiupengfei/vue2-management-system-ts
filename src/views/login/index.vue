@@ -219,11 +219,11 @@ export default class extends Vue {
     background-clip: padding-box;
     background-color: #fff;
     margin: 0 auto;
-    margin-top: 280px;
     width: 400px;
     padding: 35px 35px 15px;
     border: 1px solid #eaeaea;
     box-shadow: 0 0 25px #cac6c6;
+    transform: translateY(50%);
 
     .el-form-item__content {
       & > svg {

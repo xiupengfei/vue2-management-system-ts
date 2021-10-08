@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import { Message, MessageBox } from 'element-ui'
 import { UserModule } from '@/store/modules/user'
 
@@ -13,9 +13,9 @@ const service = axios.create({
 
 // 请求拦截器
 service.interceptors.request.use(
-  (config) => {
+  (config: AxiosRequestConfig) => {
     if (UserModule.token) {
-      config.headers['Authorization'] = UserModule.token
+      (config as any).headers['Authorization'] = UserModule.token
     }
     return config
   },

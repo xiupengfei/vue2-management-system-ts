@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion:
+ * @Version: v0.1
+ * @Author: pengfei.xiu
+ * @Date: 2021-10-08 13:32:53
+ * @LastEditors: pengfei.xiu
+ * @LastEditTime: 2021-10-08 14:41:29
+-->
 <template>
   <el-scrollbar
     ref="scrollContainer"
@@ -18,7 +26,7 @@ const tagSpacing = 4
   name: 'ScrollPane'
 })
 export default class extends Vue {
-  private handleScroll(e: MouseWheelEvent) {
+  private handleScroll(e: WheelEvent) {
     const eventDelta = (e as any).wheelDelta || -e.deltaY * 40
     const scrollContainer = this.$refs.scrollContainer as Vue
     const scrollWrapper = scrollContainer.$refs.wrap as HTMLElement

@@ -96,7 +96,7 @@ export default class extends Vue {
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
           (this as any)[variable] = xhr.responseText.replace(/@font-face{[^}]+}/, '')
-          resolve()
+          resolve(void 0)
         }
       }
       xhr.open('GET', url)

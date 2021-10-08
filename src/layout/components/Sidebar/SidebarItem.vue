@@ -129,6 +129,18 @@ export default class extends Vue {
   color: $subMenuActiveText !important;
 }
 
+.full-mode {
+  .nest-menu .el-submenu > .el-submenu__title,
+  .el-submenu .el-menu-item {
+    min-width: $sideBarWidth !important;
+    background-color: $subMenuBg !important;
+
+    &:hover {
+      background-color: $subMenuHoverBg !important;
+    }
+  }
+}
+
 .simple-mode {
   &.first-level {
     .submenu-title-noDropdown {
@@ -157,19 +169,6 @@ export default class extends Vue {
     }
   }
 }
-
-.full-mode {
-  .nest-menu .el-submenu > .el-submenu__title,
-  .el-submenu .el-menu-item {
-    min-width: $sideBarWidth !important;
-    background-color: $subMenuBg !important;
-
-    &:hover {
-      background-color: $subMenuHoverBg !important;
-    }
-  }
-}
-
 </style>
 
 <style lang="scss" scoped>

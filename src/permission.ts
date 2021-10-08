@@ -4,7 +4,7 @@
  * @Author: pengfei.xiu
  * @Date: 2021-07-10 14:47:56
  * @LastEditors: pengfei.xiu
- * @LastEditTime: 2021-10-08 12:56:01
+ * @LastEditTime: 2021-10-08 14:35:10
  */
 import 'nprogress/nprogress.css'
 import NProgress from 'nprogress'
@@ -58,7 +58,7 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
         } catch (err) {
           // Remove token and redirect to login page
           UserModule.ResetToken()
-          Message.error(err || 'Has Error')
+          Message.error(err as string)
           next(`/login?redirect=${to.path}`)
           NProgress.done()
           TagsViewModule.delAllViews()

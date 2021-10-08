@@ -57,7 +57,7 @@ $tagViewActiveBg: #ccc;
 $tagViewActiveTextColor: #fff;
 
 :export {
-  menubg: $menuBg;
-  menutext: $menuText;
-  menuactivetext: $menuActiveText;
+  custom-menu-bg: $menuBg;
+  custom-menu-text-color: $menuText;
+  custom-menu-activetext-color: $menuActiveText;
 }

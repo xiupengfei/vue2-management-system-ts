@@ -8,9 +8,9 @@
       <el-menu
         :default-active="activeMenu"
         :collapse="isCollapse"
-        :background-color="variables.menuBg"
-        :text-color="variables.menuText"
-        :active-text-color="menuActiveTextColor"
+        :background-color="variables['custom-menu-bg']"
+        :text-color="variables['custom-menu-text-color']"
+        :active-text-color="variables['custom-menu-activetext-color']"
         :unique-opened="false"
         :collapse-transition="false"
         mode="vertical"
@@ -60,7 +60,7 @@ export default class extends Vue {
     if (SettingsModule.sidebarTextTheme) {
       return SettingsModule.theme
     } else {
-      return variables.menuActiveText
+      return variables['custom-menu-activetext-color']
     }
   }
 
@@ -71,7 +71,7 @@ export default class extends Vue {
   get activeMenu() {
     const route = this.$route
     const { meta, path } = route
-    // if set path, the sidebar will highlight the path you set
+
     if (meta?.activeMenu) {
       return meta.activeMenu
     }
@@ -125,6 +125,6 @@ export default class extends Vue {
 .el-menu {
   border: none;
   height: 100%;
-  width: 100% !important;
+  width: 100%;
 }
 </style>

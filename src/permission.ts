@@ -1,3 +1,11 @@
+/*
+ * @Descripttion:
+ * @Version: v0.1
+ * @Author: pengfei.xiu
+ * @Date: 2021-07-10 14:47:56
+ * @LastEditors: pengfei.xiu
+ * @LastEditTime: 2021-10-08 12:56:01
+ */
 import 'nprogress/nprogress.css'
 import NProgress from 'nprogress'
 import { Message } from 'element-ui'
@@ -41,7 +49,10 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
           // 基于角色生成可访问路由表
           PermissionModule.GenerateRoutes(roles)
           // 动态添加可访问路由
-          router.addRoutes(PermissionModule.dynamicRoutes)
+          // router.addRoutes(PermissionModule.dynamicRoutes)
+          PermissionModule.dynamicRoutes.forEach(r => {
+            router.addRoute(r)
+          })
           // 设置replace: true, 导航就不会留下历史记录
           next({ ...to, replace: true })
         } catch (err) {
@@ -69,5 +80,5 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
 
 router.afterEach((to: Route) => {
   NProgress.done()
-  document.title = getPageTitle(to.meta.title)
+  document.title = getPageTitle(to.meta?.title)
 })

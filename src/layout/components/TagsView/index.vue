@@ -11,19 +11,22 @@
         v-for="tag in visitedViews"
         ref="tag"
         :key="tag.path"
-        :class="isActive(tag) ? 'active' : ''"
+        custom
         :to="{path: tag.path, query: tag.query, fullPath: tag.fullPath}"
-        tag="span"
-        class="tags-view-item"
-        @click.middle.native="!isAffix(tag)?closeSelectedTag(tag):''"
-        @contextmenu.prevent.native="openMenu(tag, $event)"
       >
-        {{ $t('route.' + tag.meta.title) }}
         <span
-          v-if="!isAffix(tag)"
-          class="el-icon-close"
-          @click.prevent.stop="closeSelectedTag(tag)"
-        />
+          class="tags-view-item"
+          :class="isActive(tag) ? 'active' : ''"
+          @click.middle="!isAffix(tag)?closeSelectedTag(tag):''"
+          @contextmenu.prevent="openMenu(tag, $event)"
+        >
+          {{ $t('route.' + tag.meta.title) }}
+          <span
+            v-if="!isAffix(tag)"
+            class="el-icon-close"
+            @click.prevent.stop="closeSelectedTag(tag)"
+          />
+        </span>
       </router-link>
     </scroll-pane>
     <ul
@@ -38,8 +41,7 @@
         v-if="!isAffix(selectedTag)"
         @click="closeSelectedTag(selectedTag)"
       >
-        {{
-          $t('tagsView.close') }}
+        {{ $t('tagsView.close') }}
       </li>
       <li @click="closeOthersTags">
         {{ $t('tagsView.closeOthers') }}
@@ -58,6 +60,7 @@ import VueRouter, { Route, RouteRecord, RouteConfig } from 'vue-router'
 import { PermissionModule } from '@/store/modules/permission'
 import { TagsViewModule, ITagView } from '@/store/modules/tags-view'
 import ScrollPane from './ScrollPane.vue'
+import { TagsView } from '..'
 
 @Component({
   name: 'TagsView',
@@ -69,7 +72,7 @@ export default class extends Vue {
   private visible: boolean = false
   private top: number = 0
   private left: number = 0
-  private selectedTag: ITagView = {}
+  private selectedTag: ITagView = { name: '' }
   private affixTags: ITagView[] = []
 
   get visitedViews() {
@@ -104,8 +107,8 @@ export default class extends Vue {
     return route.path === this.$route.path
   }
 
-  private isAffix(tag: ITagView) {
-    return tag.meta && tag.meta.affix
+  private isAffix(tag?: ITagView) {
+    return tag?.meta?.affix
   }
 
   private filterAffixTags(routes: RouteConfig[], basePath = '/') {
@@ -116,7 +119,7 @@ export default class extends Vue {
         tags.push({
           fullPath: tagPath,
           path: tagPath,
-          name: route.name,
+          name: route.name as string,
           meta: { ...route.meta }
         })
       }
@@ -143,7 +146,7 @@ export default class extends Vue {
   private addTags() {
     const { name } = this.$route
     if (name) {
-      TagsViewModule.addView(this.$route)
+      TagsViewModule.addView(this.$route as unknown as ITagView)
     }
     return false
   }
@@ -156,7 +159,7 @@ export default class extends Vue {
           (this.$refs.scrollPane as ScrollPane).moveToTarget(tag as any)
           // When query is different then update
           if ((tag.to as ITagView).fullPath !== this.$route.fullPath) {
-            TagsViewModule.updateVisitedView(this.$route)
+            TagsViewModule.updateVisitedView(this.$route as unknown as ITagView)
           }
           break
         }
@@ -182,9 +185,11 @@ export default class extends Vue {
   }
 
   private closeOthersTags() {
-    this.$router.push(this.selectedTag)
-    TagsViewModule.delOthersViews(this.selectedTag)
-    this.moveToCurrentTag()
+    if (this.selectedTag) {
+      this.$router.push(this.selectedTag)
+      TagsViewModule.delOthersViews(this.selectedTag)
+      this.moveToCurrentTag()
+    }
   }
 
   private closeAllTags(view: ITagView) {
@@ -289,9 +294,9 @@ export default class extends Vue {
         margin-left: 15px;
       }
 
-      &:last-of-type {
-        margin-right: 15px;
-      }
+      // &:last-of-type {
+      //   margin-right: 15px;
+      // }
 
       &.active {
         background-color: $tagViewActiveBg;

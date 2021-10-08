@@ -1,3 +1,11 @@
+/*
+ * @Descripttion:
+ * @Version: v0.1
+ * @Author: pengfei.xiu
+ * @Date: 2021-07-10 14:48:01
+ * @LastEditors: pengfei.xiu
+ * @LastEditTime: 2021-10-08 12:32:09
+ */
 import { VuexModule, Module, Mutation, Action, getModule } from 'vuex-module-decorators'
 import { RouteConfig } from 'vue-router'
 import { asyncRoutes, constantRoutes } from '@/router'
@@ -5,7 +13,7 @@ import store from '@/store'
 
 const hasPermission = (roles: string[], route: RouteConfig) => {
   if (route.meta && route.meta.roles) {
-    return roles.some(role => route.meta.roles.includes(role))
+    return roles.some(role => route.meta?.roles.includes(role))
   } else {
     return true
   }

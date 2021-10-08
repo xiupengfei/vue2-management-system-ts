@@ -1,6 +1,4 @@
-# vue-management-ts
-基于Vue的后台管理系统-TS版
-
+# 基于 Vue2 + element-ui + TypeScript 后台管理系统 Base
 
 ## 开始
 

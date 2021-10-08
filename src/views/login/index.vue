@@ -1,5 +1,7 @@
 <template>
   <div class="login-container">
+    <div class="area1" />
+    <div class="area2" />
     <el-form
       ref="loginForm"
       :model="loginForm"
@@ -183,13 +185,12 @@ export default class extends Vue {
 }
 </style>
 <style lang="scss" scoped>
-
 .login-container {
   height: 100%;
   width: 100%;
   overflow: hidden;
   background-color: #454545;
-  background-image: linear-gradient(#1E425A, #224A64, #4E656C, #3D5B60);
+  // background-image: linear-gradient(#1E425A, #224A64, #4E656C, #3D5B60);
 
   .title-container {
     position: relative;
@@ -246,13 +247,53 @@ export default class extends Vue {
   // 最后需要删除
   .tips {
     font-size: 14px;
-    color: #fff;
+    color: teal;
     margin-bottom: 10px;
     span {
       &:first-of-type {
         margin-right: 16px;
       }
     }
+  }
+}
+</style>
+
+<style lang="scss">
+@keyframes animation1 {
+  from { background-position: 0 0; }
+  to { background-position: 4000% 0; }
+}
+
+@keyframes animation2 {
+  from { background-position: 0 0; }
+  to { background-position: 30000% 0; }
+}
+.login-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url(/img/login/bg.jpg) no-repeat center;
+  background-size: cover;
+
+  .area1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(/img/login/animate2.png) repeat-x 0px 0px;
+    background-size: cover;
+    animation: animation1 6000s linear infinite;
+  }
+  .area2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(/img/login/animate1.png) repeat-x 0px 0px;
+    background-size: cover;
+    animation: animation2 8000s linear infinite;
   }
 }
 </style>

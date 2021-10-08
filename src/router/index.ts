@@ -4,13 +4,19 @@ import Router, { RouteConfig } from 'vue-router'
 /* Layout */
 import Layout from '@/layout/index.vue'
 
-/* Router modules */
-// import componentsRouter from './modules/components'
-// import chartsRouter from './modules/charts'
-// import tableRouter from './modules/table'
-// import nestedRouter from './modules/nested'
-
 Vue.use(Router)
+
+/* Router modules */
+const modulesFiles = require.context('./modules', false, /\.ts$/)
+
+const modules: RouteConfig[] = []
+
+modulesFiles.keys().map(modulePath => {
+  // './app.js' => 'app'
+  // const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
+  const value = modulesFiles(modulePath)
+  modules.push(value.default)
+})
 
 /**
  * 说明: 只有当路由子菜单长度大于等于1时才会出现 children.length >= 1
@@ -94,40 +100,9 @@ export const constantRoutes: RouteConfig[] = [
 
 /**
  * asyncRoutes
- * the routes that need to be dynamically loaded based on user roles
 */
 export const asyncRoutes: RouteConfig[] = [
-  {
-    path: '/permission',
-    component: Layout,
-    redirect: '/permission/directive',
-    meta: {
-      title: 'permission',
-      icon: 'lock',
-      roles: ['admin', 'editor'], // you can set roles in root nav
-      alwaysShow: true // will always show the root menu
-    },
-    children: [
-      {
-        path: 'page',
-        component: () => import(/* webpackChunkName: "permission-page" */ '@/views/permission/page.vue'),
-        name: 'PagePermission',
-        meta: {
-          title: 'pagePermission',
-          roles: ['admin'] // or you can only set roles in sub nav
-        }
-      },
-      {
-        path: 'directive',
-        component: () => import(/* webpackChunkName: "permission-directive" */ '@/views/permission/directive.vue'),
-        name: 'DirectivePermission',
-        meta: {
-          title: 'directivePermission'
-          // if do not set roles, means: this page does not require permission
-        }
-      }
-    ]
-  },
+  ...modules,
   {
     path: '*',
     redirect: '/404',

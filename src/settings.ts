@@ -14,8 +14,6 @@ interface ISettings {
   showSidebarLogo: boolean
   fixedHeader: boolean
   sidebarTextTheme: boolean
-  devServerPort: number
-  mockServerPort: number
 }
 
 // You can customize below settings :)
@@ -29,9 +27,7 @@ const settings: ISettings = {
   showTagsView: true,
   fixedHeader: true,
   showSidebarLogo: true,
-  sidebarTextTheme: true,
-  devServerPort: 9527,
-  mockServerPort: 9528
+  sidebarTextTheme: true
 }
 
 export default settings

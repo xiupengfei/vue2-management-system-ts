@@ -19,7 +19,9 @@
           <span
             v-if="theOnlyOneChild.meta.title"
             slot="title"
-          >{{ $t('route.' + theOnlyOneChild.meta.title) }}</span>
+          >
+            {{ $t(`route.${theOnlyOneChild.meta.title}`) }}
+          </span>
         </el-menu-item>
       </sidebar-item-link>
     </template>
@@ -36,7 +38,9 @@
         <span
           v-if="item.meta && item.meta.title"
           slot="title"
-        >{{ $t('route.' + item.meta.title) }}</span>
+        >
+          {{ $t(`route.${item.meta.title}`) }}
+        </span>
       </template>
       <template v-if="item.children">
         <sidebar-item
@@ -132,7 +136,7 @@ export default class extends Vue {
     background-color: $subMenuBg !important;
 
     &:hover {
-      background-color: $subMenuHover !important;
+      background-color: $subMenuHoverBg !important;
     }
   }
 }

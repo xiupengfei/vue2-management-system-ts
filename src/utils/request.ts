@@ -6,8 +6,7 @@ const UNKNOWN_ERROR = '未知错误!'
 
 // 创建 axios 实例
 const service = axios.create({
-  // baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
-  baseURL: 'http://127.0.0.1:9528',
+  baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
   timeout: 30000
   // withCredentials: true // 跨域请求时发送cookie
 })

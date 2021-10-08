@@ -8,7 +8,7 @@ import http from 'http'
 import api from './api'
 
 const app = express()
-const port = 9528
+const port = 3000
 // const { connector, summarise } = require('swagger-routes-express')
 
 const accessTokenAuth = (req: Request, res: Response, next: NextFunction) => {

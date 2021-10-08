@@ -44,7 +44,7 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 $item-length: 10; // Should be no less than items.length
-$transition-time: .1s;
+$transition-time: 0.1s;
 
 .share-dropdown-menu {
   width: 250px;
@@ -62,7 +62,7 @@ $transition-time: .1s;
     font-size: 20px;
     text-align: center;
     z-index: 2;
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
   }
 
   &-wrapper {
@@ -103,8 +103,8 @@ $transition-time: .1s;
     .share-dropdown-menu-item {
       @for $i from 1 through $item-length {
         &:nth-of-type(#{$i}) {
-          transition-delay: ($item-length - $i)*$transition-time;
-          transform: translate3d(0, ($i - 1)*60px, 0);
+          transition-delay: ($item-length - $i) *$transition-time;
+          transform: translate3d(0, ($i - 1) *60px, 0);
         }
       }
     }

@@ -38,34 +38,6 @@ export default class extends Vue {
   outline: none;
   text-decoration: none;
 
-  &:hover {
-    -webkit-transition: none;
-    transition: none;
-    color: transparent;
-
-    &::before {
-      -webkit-transform: translate3d(100%, 0, 0);
-      transform: translate3d(100%, 0, 0);
-    }
-  }
-
-  &::before {
-    content: '';
-    width: 100%;
-    height: 6px;
-    margin: -3px 0 0 0;
-    background: #3888fa;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-    -webkit-transition: -webkit-transform 0.4s;
-    transition: transform 0.4s;
-    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
-    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
-  }
-
   span {
     position: absolute;
     height: 50%;
@@ -76,7 +48,6 @@ export default class extends Vue {
 
     &::before {
       content: attr(data-letters);
-      color: red;
       position: absolute;
       left: 0;
       width: 100%;
@@ -101,14 +72,43 @@ export default class extends Vue {
       transform: translate3d(0, -100%, 0);
     }
   }
+
+  &:hover span::before {
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  }
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 6px;
+    margin: -3px 0 0 0;
+    background: #3888fa;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: transform 0.4s;
+    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  }
+
+  &:hover {
+    -webkit-transition: none;
+    transition: none;
+    color: transparent;
+
+    &::before {
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+    }
+  }
 }
 
-.link--mallki:hover span::before {
-  -webkit-transition-delay: 0.3s;
-  transition-delay: 0.3s;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-}
 </style>

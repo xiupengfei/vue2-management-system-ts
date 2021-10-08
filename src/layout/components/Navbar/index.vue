@@ -33,7 +33,7 @@
           </router-link>
           <el-dropdown-item divided>
             <span
-              style="display:block;"
+              style="display: block;"
               @click="logout"
             >{{ $t('navbar.logOut') }}</span>
           </el-dropdown-item>
@@ -90,7 +90,7 @@ export default class extends Vue {
   overflow: hidden;
   position: relative;
   background: $navBarBg;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
   .hamburger-container {
     line-height: $navBarHeight * 0.92;
@@ -98,11 +98,11 @@ export default class extends Vue {
     float: left;
     padding: 0 15px;
     cursor: pointer;
-    transition: background .3s;
-    -webkit-tap-highlight-color:transparent;
+    transition: background 0.3s;
+    -webkit-tap-highlight-color: transparent;
 
     &:hover {
-      background: rgba(0, 0, 0, .025)
+      background: rgba(0, 0, 0, 0.025);
     }
   }
 
@@ -134,10 +134,10 @@ export default class extends Vue {
 
       &.hover-effect {
         cursor: pointer;
-        transition: background .3s;
+        transition: background 0.3s;
 
         &:hover {
-          background: rgba(0, 0, 0, .025)
+          background: rgba(0, 0, 0, 0.025);
         }
       }
     }

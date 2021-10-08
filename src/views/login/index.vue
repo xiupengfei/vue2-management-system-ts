@@ -56,13 +56,13 @@
       <el-button
         :loading="loading"
         type="primary"
-        style="width:100%; margin-bottom:30px;"
+        style="width: 100%; margin-bottom: 30px;"
         @click.native.prevent="handleLogin"
       >
         {{ $t('login.logIn') }}
       </el-button>
     </el-form>
-    <div style="position: absolute; left: 100px; top: 50px">
+    <div style="position: absolute; left: 100px; top: 50px;">
       <div class="tips">
         <span>{{ $t('login.username') }} : admin </span>
         <span>{{ $t('login.password') }} : {{ $t('login.any') }} </span>
@@ -194,10 +194,11 @@ export default class extends Vue {
 
   .title-container {
     position: relative;
+
     .title {
       font-size: 26px;
-      color: #3A71A8;
-      margin: 0px auto 40px auto;
+      color: #3a71a8;
+      margin: 0 auto 40px auto;
       text-align: center;
       font-weight: bold;
     }
@@ -207,7 +208,7 @@ export default class extends Vue {
       position: absolute;
       top: 3px;
       font-size: 18px;
-      right: 0px;
+      right: 0;
       cursor: pointer;
     }
   }
@@ -216,16 +217,16 @@ export default class extends Vue {
     position: relative;
     border-radius: 5px;
     background-clip: padding-box;
+    background-color: #fff;
     margin: 0 auto;
     margin-top: 280px;
     width: 400px;
     padding: 35px 35px 15px;
-    background: #fff;
     border: 1px solid #eaeaea;
-    -webkit-box-shadow: 0 0 25px #cac6c6;
     box-shadow: 0 0 25px #cac6c6;
+
     .el-form-item__content {
-      &>svg {
+      & > svg {
         position: absolute;
         left: 11px;
         top: 11px;
@@ -233,10 +234,11 @@ export default class extends Vue {
         color: #889aa4;
       }
     }
+
     .show-pwd {
       position: absolute;
       right: 10px;
-      top: 0px;
+      top: 0;
       font-size: 16px;
       color: #889aa4;
       cursor: pointer;
@@ -249,6 +251,7 @@ export default class extends Vue {
     font-size: 14px;
     color: teal;
     margin-bottom: 10px;
+
     span {
       &:first-of-type {
         margin-right: 16px;
@@ -268,6 +271,7 @@ export default class extends Vue {
   from { background-position: 0 0; }
   to { background-position: 30000% 0; }
 }
+
 .login-container {
   position: relative;
   width: 100%;
@@ -281,17 +285,18 @@ export default class extends Vue {
     height: 100%;
     top: 0;
     left: 0;
-    background: url(/img/login/animate2.png) repeat-x 0px 0px;
+    background: url(/img/login/animate2.png) repeat-x 0 0;
     background-size: cover;
     animation: animation1 6000s linear infinite;
   }
+
   .area2 {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background: url(/img/login/animate1.png) repeat-x 0px 0px;
+    background: url(/img/login/animate1.png) repeat-x 0 0;
     background-size: cover;
     animation: animation2 8000s linear infinite;
   }

@@ -64,8 +64,10 @@ export default class extends mixins(ResizeMixin) {
 </script>
 
 <style lang="scss" scoped>
+
 .app-wrapper {
   @include clearfix;
+
   position: relative;
   height: 100%;
   width: 100%;
@@ -83,7 +85,7 @@ export default class extends mixins(ResizeMixin) {
 
 .main-container {
   min-height: 100%;
-  transition: margin-left .28s;
+  transition: margin-left 0.28s;
   margin-left: $sideBarWidth;
   position: relative;
 }
@@ -93,7 +95,7 @@ export default class extends mixins(ResizeMixin) {
   width: $sideBarWidth !important;
   height: 100%;
   position: fixed;
-  font-size: 0px;
+  font-size: 0;
   top: 0;
   bottom: 0;
   left: 0;
@@ -120,18 +122,25 @@ export default class extends mixins(ResizeMixin) {
   }
 
   .fixed-header {
-    width: calc(100% - 54px)
+    width: calc(100% - 54px);
+  }
+}
+
+.withoutAnimation {
+  .main-container,
+  .sidebar-container {
+    transition: none;
   }
 }
 
 /* for mobile response 适配移动端 */
 .mobile {
   .main-container {
-    margin-left: 0px;
+    margin-left: 0;
   }
 
   .sidebar-container {
-    transition: transform .28s;
+    transition: transform 0.28s;
     width: $sideBarWidth !important;
   }
 
@@ -153,10 +162,4 @@ export default class extends mixins(ResizeMixin) {
   }
 }
 
-.withoutAnimation {
-  .main-container,
-  .sidebar-container {
-    transition: none;
-  }
-}
 </style>

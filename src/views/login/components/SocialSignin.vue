@@ -82,7 +82,7 @@ export default class extends Vue {
   }
 
   .qq-svg-container {
-    background-color: #6BA2D6;
+    background-color: #6ba2d6;
     margin-left: 50px;
   }
 }

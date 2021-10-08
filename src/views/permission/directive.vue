@@ -3,7 +3,7 @@
     <switch-roles @change="handleRolesChange" />
     <div
       :key="key"
-      style="margin-top:30px;"
+      style="margin-top: 30px;"
     >
       <div>
         <span
@@ -72,7 +72,7 @@
 
     <div
       :key="'checkPermission'+key"
-      style="margin-top:60px;"
+      style="margin-top: 60px;"
     >
       <aside>
         {{ $t('permission.tips') }}
@@ -81,7 +81,7 @@
 
       <el-tabs
         type="border-card"
-        style="width:550px;"
+        style="width: 550px;"
       >
         <el-tab-pane
           v-if="checkPermission(['admin'])"

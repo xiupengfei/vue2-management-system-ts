@@ -11,10 +11,14 @@
     "mock": "cd mock && ts-node-dev mock-server.ts",
     "svg": "vsvg -s ./src/icons/svg -t ./src/icons/components --ext ts --es6",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "jest --clearCache && vue-cli-service test:unit"
+    "test:unit": "jest --clearCache && vue-cli-service test:unit",
+    "lint:vue": "vue-cli-service lint",
+    "lint:css": "stylelint src/**/*.{css,scss} --syntax scss --fix",
+    "lint:style": "stylelint src/**/*.{html,vue} --custom-syntax postcss-html --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.22.0",
     "core-js": "^3.6.4",
     "echarts": "^4.5.0",
     "element-ui": "^2.15.6",
@@ -67,6 +71,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^6.0.1",
+    "husky": "^7.0.2",
     "jest": "^24.9.0",
     "lint-staged": "^9.5.0",
     "mockjs": "^1.1.0",
@@ -76,6 +81,9 @@
     "sass-loader": "^8.0.0",
     "simple-progress-webpack-plugin": "^1.1.2",
     "style-resources-loader": "^1.3.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
     "ts-jest": "^24.2.0",
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.7.2",
@@ -84,18 +92,9 @@
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.41.2"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
   "keywords": [
     "vue",
     "typescript",
     "element-ui"
-  ],
-  "lint-staged": {
-    "*.{js,vue}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
-  }
+  ]
 }

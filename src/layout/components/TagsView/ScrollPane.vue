@@ -68,7 +68,7 @@ export default class extends Vue {
 <style lang="scss">
 .scroll-container {
   .el-scrollbar__bar {
-    bottom: 0px;
+    bottom: 0;
   }
 
   .el-scrollbar__wrap {

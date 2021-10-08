@@ -40,7 +40,7 @@ $tagViewHeight: 34px;
   overflow: hidden;
 }
 
-.fixed-header+.app-main {
+.fixed-header + .app-main {
   padding-top: $navBarHeight;
   height: 100vh;
   overflow: auto;
@@ -52,7 +52,7 @@ $tagViewHeight: 34px;
     min-height: calc(100vh - #{$navBarHeight} - #{$tagViewHeight});
   }
 
-  .fixed-header+.app-main {
+  .fixed-header + .app-main {
     padding-top: calc(#{$navBarHeight} + #{$tagViewHeight});
   }
 }

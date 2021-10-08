@@ -30,7 +30,7 @@
         <div class="text-404__info">
           All rights reserved
           <a
-            style="color:#20a0ff"
+            style="color: #20a0ff;"
             href="https://wallstreetcn.com"
             target="_blank"
           >wallstreetcn</a>
@@ -63,7 +63,7 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .wscn-http404-container {
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   position: absolute;
   top: 40%;
   left: 50%;
@@ -256,7 +256,7 @@ export default class extends Vue {
       background: #1482f0;
       border-radius: 100px;
       text-align: center;
-      color: #ffffff;
+      color: #fff;
       opacity: 0;
       font-size: 14px;
       line-height: 36px;

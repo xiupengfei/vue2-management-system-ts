@@ -96,12 +96,12 @@ export default class extends Vue {
   }
 
   .el-scrollbar__view {
-    height: 100%
+    height: 100%;
   }
 
   .el-scrollbar__bar {
     &.is-vertical {
-      right: 0px;
+      right: 0;
     }
 
     &.is-horizontal {
@@ -113,7 +113,7 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .el-scrollbar {
-  height: 100%
+  height: 100%;
 }
 
 .has-logo {

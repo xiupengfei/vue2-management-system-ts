@@ -9,7 +9,7 @@
         class="clearfix"
       >
         <svg-icon name="international" />
-        <span style="margin-left:10px;">{{ $t('i18nView.title') }}</span>
+        <span style="margin-left: 10px;">{{ $t('i18nView.title') }}</span>
       </div>
       <div>
         <el-radio-group
@@ -131,7 +131,7 @@
           fit
           highlight-current-row
           border
-          style="width: 100%"
+          style="width: 100%;"
         >
           <el-table-column
             :label="$t('i18nView.tableName')"
@@ -237,7 +237,7 @@ export default class extends Vue {
 
 .item-btn {
   margin-bottom: 15px;
-  margin-left: 0px;
+  margin-left: 0;
 }
 
 .block {

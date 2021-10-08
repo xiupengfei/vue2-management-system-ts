@@ -2,13 +2,13 @@
 
 /* ========================== 基础颜色========================== */
 $blue:#324157;
-$light-blue:#3A71A8;
-$red:#C03639;
-$pink: #E65D6E;
-$green: #30B08F;
-$tiffany: #4AB7BD;
-$yellow:#FEC171;
-$panGreen: #30B08F;
+$light-blue:#3a71a8;
+$red:#c03639;
+$pink: #e65d6e;
+$green: #30b08f;
+$tiffany: #4ab7bd;
+$yellow:#fec171;
+$panGreen: #30b08f;
 
 /* ========================== 侧边栏(菜单栏) ========================== */
 // 侧边栏宽度
@@ -21,22 +21,22 @@ $sideBarTitleColor: white;
 $sideBarLogoBg: #2b2f3a;
 
 // 菜单背景色
-$menuBg: #282C34;
+$menuBg: #282c34;
 
 // 菜单字体颜色
 $menuText:white;
 
 // 子菜单背景颜色
-$subMenuBg: #182C34;
+$subMenuBg: #182c34;
 
 // 子菜单鼠标悬停颜色
-$subMenuHoverBg:#20232A;
+$subMenuHoverBg:#20232a;
 
 // 子菜单处于active状态时候父菜单颜色
-$subMenuActiveText:#3A71A8;
+$subMenuActiveText:#3a71a8;
 
 // 生效取决于 settings.sidebarTextTheme 设置
-$menuActiveText:#409EFF;
+$menuActiveText:#409eff;
 
 /* ========================== 导航条 ========================== */
 // 导航条高度
@@ -57,7 +57,7 @@ $tagViewActiveBg: #ccc;
 $tagViewActiveTextColor: #fff;
 
 :export {
-  menuBg: $menuBg;
-  menuText: $menuText;
-  menuActiveText: $menuActiveText;
+  menubg: $menuBg;
+  menutext: $menuText;
+  menuactivetext: $menuActiveText;
 }

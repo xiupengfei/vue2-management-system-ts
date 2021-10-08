@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-declare module '*.vue';
+declare module '*.vue'
 
 declare module 'axios' {
   interface AxiosInstance {
@@ -13,7 +13,7 @@ declare module 'axios' {
 // declare module 'element-ui/lib/locale/lang/*' {
 //   export const elementLocale: any
 // }
-declare module 'element-ui/lib/locale/lang/*';
+declare module 'element-ui/lib/locale/lang/*'
 
 declare module '*.gif' {
   export const gif: any

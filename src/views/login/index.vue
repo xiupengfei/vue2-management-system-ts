@@ -11,13 +11,8 @@
       label-position="left"
     >
       <div class="title-container">
-        <h3 class="title">
-          {{ $t('login.title') }} {{ version }}
-        </h3>
-        <lang-select
-          class="set-language"
-          placement="right"
-        />
+        <h3 class="title">{{ $t('login.title') }} {{ version }}</h3>
+        <lang-select class="set-language" placement="right" />
       </div>
 
       <el-form-item prop="username">
@@ -45,10 +40,7 @@
           autocomplete="on"
           @keyup.enter.native="handleLogin"
         />
-        <span
-          class="show-pwd"
-          @click="showPwd"
-        >
+        <span class="show-pwd" @click="showPwd">
           <svg-icon :name="passwordType === 'password' ? 'eye-off' : 'eye-on'" />
         </span>
       </el-form-item>
@@ -87,8 +79,8 @@ import LangSelect from '@/components/LangSelect/index.vue'
 @Component({
   name: 'Login',
   components: {
-    LangSelect
-  }
+    LangSelect,
+  },
 })
 export default class extends Vue {
   private version: string = defaultSettings.version
@@ -109,11 +101,11 @@ export default class extends Vue {
   }
   private loginForm = {
     username: 'admin',
-    password: '111111'
+    password: '111111',
   }
   private loginRules = {
     username: [{ validator: this.validateUsername, trigger: ['blur', 'change'] }],
-    password: [{ validator: this.validatePassword, trigger: ['blur', 'change'] }]
+    password: [{ validator: this.validatePassword, trigger: ['blur', 'change'] }],
   }
   private passwordType = 'password'
   private loading = false
@@ -131,9 +123,9 @@ export default class extends Vue {
 
   mounted() {
     if (this.loginForm.username === '') {
-      (this.$refs.username as Input).focus()
+      ;(this.$refs.username as Input).focus()
     } else if (this.loginForm.password === '') {
-      (this.$refs.password as Input).focus()
+      ;(this.$refs.password as Input).focus()
     }
   }
 
@@ -144,18 +136,18 @@ export default class extends Vue {
       this.passwordType = 'password'
     }
     this.$nextTick(() => {
-      (this.$refs.password as Input).focus()
+      ;(this.$refs.password as Input).focus()
     })
   }
 
   private handleLogin() {
-    (this.$refs.loginForm as ElForm).validate(async(valid: boolean) => {
+    ;(this.$refs.loginForm as ElForm).validate(async (valid: boolean) => {
       if (valid) {
         this.loading = true
         await UserModule.Login(this.loginForm)
         this.$router.push({
           path: this.redirect || '/',
-          query: this.otherQuery
+          query: this.otherQuery,
         })
         // Just to simulate the time of the request
         setTimeout(() => {
@@ -263,13 +255,23 @@ export default class extends Vue {
 
 <style lang="scss">
 @keyframes animation1 {
-  from { background-position: 0 0; }
-  to { background-position: 4000% 0; }
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 4000% 0;
+  }
 }
 
 @keyframes animation2 {
-  from { background-position: 0 0; }
-  to { background-position: 30000% 0; }
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 30000% 0;
+  }
 }
 
 .login-container {

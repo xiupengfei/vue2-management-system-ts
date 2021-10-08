@@ -1,9 +1,6 @@
 <template>
-  <div :class="{'has-logo': showLogo}">
-    <sidebar-logo
-      v-if="showLogo"
-      :collapse="isCollapse"
-    />
+  <div :class="{ 'has-logo': showLogo }">
+    <sidebar-logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
@@ -40,8 +37,8 @@ import variables from '@/styles/_variables.scss'
   name: 'SideBar',
   components: {
     SidebarItem,
-    SidebarLogo
-  }
+    SidebarLogo,
+  },
 })
 export default class extends Vue {
   get sidebar() {

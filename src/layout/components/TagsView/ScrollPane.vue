@@ -4,7 +4,7 @@
  * @Author: pengfei.xiu
  * @Date: 2021-10-08 13:32:53
  * @LastEditors: pengfei.xiu
- * @LastEditTime: 2021-10-08 14:41:29
+ * @LastEditTime: 2021-10-08 16:46:08
 -->
 <template>
   <el-scrollbar
@@ -23,7 +23,7 @@ import { Component, Vue } from 'vue-property-decorator'
 const tagSpacing = 4
 
 @Component({
-  name: 'ScrollPane'
+  name: 'ScrollPane',
 })
 export default class extends Vue {
   private handleScroll(e: WheelEvent) {
@@ -55,7 +55,7 @@ export default class extends Vue {
       scrollWrapper.scrollLeft = scrollWrapper.scrollWidth - containerWidth
     } else {
       // find preTag and nextTag
-      const currentIndex = tagList.findIndex(item => item === currentTag)
+      const currentIndex = tagList.findIndex((item) => item === currentTag)
       const prevTag = tagList[currentIndex - 1]
       const nextTag = tagList[currentIndex + 1]
       // the tag's offsetLeft after of nextTag

@@ -6,23 +6,14 @@
       class="hamburger-container"
       @toggleClick="toggleSideBar"
     />
-    <breadcrumb
-      id="breadcrumb-container"
-      class="breadcrumb-container"
-    />
+    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
     <div class="right-menu">
       <template v-if="device !== 'mobile'">
         <lang-select class="right-menu-item hover-effect" />
       </template>
-      <el-dropdown
-        class="avatar-container right-menu-item hover-effect"
-        trigger="click"
-      >
+      <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
-          <img
-            :src="avatar+'?imageView2/1/w/80/h/80'"
-            class="user-avatar"
-          >
+          <img :src="avatar + '?imageView2/1/w/80/h/80'" class="user-avatar" />
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown">
@@ -32,10 +23,7 @@
             </el-dropdown-item>
           </router-link>
           <el-dropdown-item divided>
-            <span
-              style="display: block;"
-              @click="logout"
-            >{{ $t('navbar.logOut') }}</span>
+            <span style="display: block;" @click="logout">{{ $t('navbar.logOut') }}</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -56,8 +44,8 @@ import LangSelect from '@/components/LangSelect/index.vue'
   components: {
     Breadcrumb,
     Hamburger,
-    LangSelect
-  }
+    LangSelect,
+  },
 })
 export default class extends Vue {
   get sidebar() {

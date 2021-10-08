@@ -40,7 +40,7 @@ module.exports = {
     config.set('name', name)
 
     // https://webpack.js.org/configuration/devtool/#development
-    config.when(process.env.NODE_ENV === 'development', config =>
+    config.when(process.env.NODE_ENV === 'development', (config) =>
       config.devtool('cheap-eval-source-map'),
     )
 
@@ -56,7 +56,7 @@ module.exports = {
         },
       ])
 
-    config.when(process.env.NODE_ENV !== 'development', config => {
+    config.when(process.env.NODE_ENV !== 'development', (config) => {
       config.optimization.splitChunks({
         chunks: 'all',
         cacheGroups: {

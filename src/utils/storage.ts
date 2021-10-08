@@ -1,10 +1,10 @@
-
 import { GetStorage, SetStorage, ClearStorage } from './index'
 
 // App
 const sidebarStatusKey = '--sidebar-status--'
 export const getSidebarStatus = () => GetStorage(sidebarStatusKey)
-export const setSidebarStatus = (sidebarStatus: string) => SetStorage(sidebarStatusKey, sidebarStatus)
+export const setSidebarStatus = (sidebarStatus: string) =>
+  SetStorage(sidebarStatusKey, sidebarStatus)
 
 const languageKey = '--language--'
 export const getLanguage = () => GetStorage(languageKey)

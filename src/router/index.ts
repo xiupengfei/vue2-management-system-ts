@@ -11,7 +11,7 @@ const modulesFiles = require.context('./modules', false, /\.ts$/)
 
 const modules: RouteConfig[] = []
 
-modulesFiles.keys().map(modulePath => {
+modulesFiles.keys().map((modulePath) => {
   // './app.js' => 'app'
   // const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
   const value = modulesFiles(modulePath)
@@ -60,24 +60,25 @@ export const constantRoutes: RouteConfig[] = [
     children: [
       {
         path: '/redirect/:path*',
-        component: () => import(/* webpackChunkName: "redirect" */ '@/views/redirect/index.vue')
-      }
-    ]
+        component: () => import(/* webpackChunkName: "redirect" */ '@/views/redirect/index.vue'),
+      },
+    ],
   },
   {
     path: '/login',
     component: () => import(/* webpackChunkName: "login" */ '@/views/login/index.vue'),
-    meta: { hidden: true }
+    meta: { hidden: true },
   },
   {
     path: '/auth-redirect',
-    component: () => import(/* webpackChunkName: "auth-redirect" */ '@/views/login/auth-redirect.vue'),
-    meta: { hidden: true }
+    component: () =>
+      import(/* webpackChunkName: "auth-redirect" */ '@/views/login/auth-redirect.vue'),
+    meta: { hidden: true },
   },
   {
     path: '/404',
     component: () => import(/* webpackChunkName: "404" */ '@/views/error-page/404.vue'),
-    meta: { hidden: true }
+    meta: { hidden: true },
   },
   {
     path: '/',
@@ -91,45 +92,46 @@ export const constantRoutes: RouteConfig[] = [
         meta: {
           title: 'dashboard',
           icon: 'dashboard',
-          affix: true
-        }
-      }
-    ]
-  }
+          affix: true,
+        },
+      },
+    ],
+  },
 ]
 
 /**
  * asyncRoutes
-*/
+ */
 export const asyncRoutes: RouteConfig[] = [
   ...modules,
   {
     path: '*',
     redirect: '/404',
-    meta: { hidden: true }
-  }
+    meta: { hidden: true },
+  },
 ]
 
-const createRouter = () => new Router({
-  // mode: 'history',
-  scrollBehavior: (to, from, savedPosition) => {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { x: 0, y: 0 }
-    }
-  },
-  base: process.env.BASE_URL,
-  routes: constantRoutes
-})
+const createRouter = () =>
+  new Router({
+    // mode: 'history',
+    scrollBehavior: (to, from, savedPosition) => {
+      if (savedPosition) {
+        return savedPosition
+      } else {
+        return { x: 0, y: 0 }
+      }
+    },
+    base: process.env.BASE_URL,
+    routes: constantRoutes,
+  })
 
 const router = createRouter()
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export const resetRouter = () => {
-  const newRouter = createRouter();
+  const newRouter = createRouter()
   // 重置路由
-  (router as any).matcher = (newRouter as any).matcher
+  ;(router as any).matcher = (newRouter as any).matcher
 }
 
 export default router

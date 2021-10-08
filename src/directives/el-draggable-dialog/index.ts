@@ -43,12 +43,12 @@ export const elDraggableDialog: DirectiveOptions = {
         let top = e.clientY - disY
 
         // Handle edge cases
-        if (-(left) > minDragDomLeft) {
+        if (-left > minDragDomLeft) {
           left = -minDragDomLeft
         } else if (left > maxDragDomLeft) {
           left = maxDragDomLeft
         }
-        if (-(top) > minDragDomTop) {
+        if (-top > minDragDomTop) {
           top = -minDragDomTop
         } else if (top > maxDragDomTop) {
           top = maxDragDomTop
@@ -71,5 +71,5 @@ export const elDraggableDialog: DirectiveOptions = {
         document.onmouseup = null
       }
     }
-  }
+  },
 }

@@ -1,7 +1,16 @@
 <template>
   <el-color-picker
     v-model="theme"
-    :predefine="['#409EFF', '#1890ff', '#304156','#212121','#11a983', '#13c2c2', '#6959CD', '#f5222d']"
+    :predefine="[
+      '#409EFF',
+      '#1890ff',
+      '#304156',
+      '#212121',
+      '#11a983',
+      '#13c2c2',
+      '#6959CD',
+      '#f5222d',
+    ]"
     class="theme-picker"
     popper-class="theme-picker-dropdown"
   />
@@ -15,7 +24,7 @@ const version = require('element-ui/package.json').version // element-ui version
 const ORIGINAL_THEME = '#409EFF' // default color
 
 @Component({
-  name: 'ThemePicker'
+  name: 'ThemePicker',
 })
 export default class extends Vue {
   private chalk = '' // The content of theme-chalk css
@@ -41,7 +50,7 @@ export default class extends Vue {
       customClass: 'theme-message',
       type: 'success',
       duration: 0,
-      iconClass: 'el-icon-loading'
+      iconClass: 'el-icon-loading',
     })
 
     if (!this.chalk) {
@@ -67,12 +76,11 @@ export default class extends Vue {
     chalkHandler()
 
     let styles: HTMLElement[] = [].slice.call(document.querySelectorAll('style'))
-    styles = styles
-      .filter(style => {
-        const text = style.innerText
-        return new RegExp(oldValue, 'i').test(text) && !/Chalk Variables/.test(text)
-      })
-    styles.forEach(style => {
+    styles = styles.filter((style) => {
+      const text = style.innerText
+      return new RegExp(oldValue, 'i').test(text) && !/Chalk Variables/.test(text)
+    })
+    styles.forEach((style) => {
       const { innerText } = style
       if (typeof innerText !== 'string') return
       style.innerText = this.updateStyle(innerText, originalCluster, themeCluster)
@@ -91,11 +99,11 @@ export default class extends Vue {
   }
 
   private getCSSString(url: string, variable: string) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const xhr = new XMLHttpRequest()
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
-          (this as any)[variable] = xhr.responseText.replace(/@font-face{[^}]+}/, '')
+          ;(this as any)[variable] = xhr.responseText.replace(/@font-face{[^}]+}/, '')
           resolve(void 0)
         }
       }
@@ -109,7 +117,8 @@ export default class extends Vue {
       let red = parseInt(color.slice(0, 2), 16)
       let green = parseInt(color.slice(2, 4), 16)
       let blue = parseInt(color.slice(4, 6), 16)
-      if (tint === 0) { // when primary color is in its rgb space
+      if (tint === 0) {
+        // when primary color is in its rgb space
         return [red, green, blue].join(',')
       } else {
         red += Math.round(tint * (255 - red))

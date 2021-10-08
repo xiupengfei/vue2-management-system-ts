@@ -9,19 +9,20 @@ const permissionRoutes: RouteConfig = {
     title: 'permission',
     icon: 'lock',
     roles: ['admin', 'editor'],
-    alwaysShow: true
+    alwaysShow: true,
   },
   children: [
     {
       path: 'page',
-      component: () => import(/* webpackChunkName: "permission-page" */ '@/views/permission/page.vue'),
+      component: () =>
+        import(/* webpackChunkName: "permission-page" */ '@/views/permission/page.vue'),
       name: 'PagePermission',
       meta: {
         title: 'pagePermission',
-        roles: ['admin'] // 只有admin能看见
-      }
-    }
-  ]
+        roles: ['admin'], // 只有admin能看见
+      },
+    },
+  ],
 }
 
 export default permissionRoutes

@@ -1,19 +1,9 @@
 <template>
-  <div
-    :class="classObj"
-    class="app-wrapper"
-  >
-    <div
-      v-if="classObj.mobile && sidebar.opened"
-      class="drawer-bg"
-      @click="handleClickOutside"
-    />
+  <div :class="classObj" class="app-wrapper">
+    <div v-if="classObj.mobile && sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
-    <div
-      :class="{hasTagsView: showTagsView}"
-      class="main-container"
-    >
-      <div :class="{'fixed-header': fixedHeader}">
+    <div :class="{ hasTagsView: showTagsView }" class="main-container">
+      <div :class="{ 'fixed-header': fixedHeader }">
         <navbar />
         <tags-view v-if="showTagsView" />
       </div>
@@ -36,8 +26,8 @@ import ResizeMixin from './mixin/resize'
     AppMain,
     Navbar,
     Sidebar,
-    TagsView
-  }
+    TagsView,
+  },
 })
 export default class extends mixins(ResizeMixin) {
   get classObj() {
@@ -45,7 +35,7 @@ export default class extends mixins(ResizeMixin) {
       hideSidebar: !this.sidebar.opened,
       openSidebar: this.sidebar.opened,
       withoutAnimation: this.sidebar.withoutAnimation,
-      mobile: this.device === DeviceType.Mobile
+      mobile: this.device === DeviceType.Mobile,
     }
   }
 
@@ -64,7 +54,6 @@ export default class extends mixins(ResizeMixin) {
 </script>
 
 <style lang="scss" scoped>
-
 .app-wrapper {
   @include clearfix;
 
@@ -161,5 +150,4 @@ export default class extends mixins(ResizeMixin) {
     width: 100%;
   }
 }
-
 </style>

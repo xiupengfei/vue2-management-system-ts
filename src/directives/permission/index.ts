@@ -7,7 +7,7 @@ export const permission: DirectiveOptions = {
     const roles = UserModule.roles
     if (value && value instanceof Array && value.length > 0) {
       const permissionRoles = value
-      const hasPermission = roles.some(role => {
+      const hasPermission = roles.some((role) => {
         return permissionRoles.includes(role)
       })
       if (!hasPermission) {
@@ -16,5 +16,5 @@ export const permission: DirectiveOptions = {
     } else {
       throw new Error(`need roles! Like v-permission="['admin','editor']"`)
     }
-  }
+  },
 }

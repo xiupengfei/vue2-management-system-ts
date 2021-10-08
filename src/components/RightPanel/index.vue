@@ -1,17 +1,13 @@
 <template>
-  <div
-    ref="rightPanel"
-    :class="{show: show}"
-    class="rightPanel-container"
-  >
+  <div ref="rightPanel" :class="{ show: show }" class="rightPanel-container">
     <div class="rightPanel-background" />
     <div class="rightPanel">
       <div
         class="handle-button"
-        :style="{'top': buttonTop+'px','background-color': theme}"
-        @click="show=!show"
+        :style="{ top: buttonTop + 'px', 'background-color': theme }"
+        @click="show = !show"
       >
-        <i :class="show?'el-icon-close':'el-icon-setting'" />
+        <i :class="show ? 'el-icon-close' : 'el-icon-setting'" />
       </div>
       <div class="rightPanel-items">
         <slot />
@@ -26,7 +22,7 @@ import { addClass, removeClass } from '@/utils'
 import { SettingsModule } from '@/store/modules/settings'
 
 @Component({
-  name: 'RightPanel'
+  name: 'RightPanel',
 })
 export default class extends Vue {
   @Prop({ default: false }) private clickNotClose!: boolean

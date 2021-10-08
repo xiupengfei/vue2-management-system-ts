@@ -12,8 +12,8 @@ import ServiceWorkerUpdatePopup from '@/pwa/components/ServiceWorkerUpdatePopup.
 @Component({
   name: 'App',
   components: {
-    ServiceWorkerUpdatePopup
-  }
+    ServiceWorkerUpdatePopup,
+  },
 })
 export default class extends Vue {}
 </script>

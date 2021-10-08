@@ -1,9 +1,6 @@
 <template>
   <section class="app-main">
-    <transition
-      name="fade-transform"
-      mode="out-in"
-    >
+    <transition name="fade-transform" mode="out-in">
       <keep-alive :include="cachedViews">
         <router-view :key="key" />
       </keep-alive>
@@ -16,7 +13,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import { TagsViewModule } from '@/store/modules/tags-view'
 
 @Component({
-  name: 'AppMain'
+  name: 'AppMain',
 })
 export default class extends Vue {
   get cachedViews() {

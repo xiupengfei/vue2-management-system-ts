@@ -37,7 +37,7 @@ class User extends VuexModule implements IUserState {
 
   // ========================== Action ======================
   @Action
-  public async Login(userInfo: { username: string, password: string}) {
+  public async Login(userInfo: { username: string; password: string }) {
     let { username, password } = userInfo
     username = username.trim()
     const res = await login({ username, password })
@@ -57,7 +57,9 @@ class User extends VuexModule implements IUserState {
     if (this.token === '') {
       throw Error('GetUserInfo: token is undefined!')
     }
-    const res = await getUserInfo({ /* Your params here */ })
+    const res = await getUserInfo({
+      /* Your params here */
+    })
 
     const { roles } = res
 
@@ -77,7 +79,7 @@ class User extends VuexModule implements IUserState {
     PermissionModule.GenerateRoutes(this.roles)
     // Add generated routes
     // router.addRoutes(PermissionModule.dynamicRoutes)
-    PermissionModule.dynamicRoutes.forEach(r => {
+    PermissionModule.dynamicRoutes.forEach((r) => {
       router.addRoute(r)
     })
     // Reset visited views and cached views

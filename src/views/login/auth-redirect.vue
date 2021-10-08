@@ -2,7 +2,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'AuthRedirect'
+  name: 'AuthRedirect',
 })
 export default class extends Vue {
   created() {

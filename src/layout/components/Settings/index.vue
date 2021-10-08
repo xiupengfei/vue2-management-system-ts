@@ -15,34 +15,22 @@
 
       <div class="drawer-item">
         <span>{{ $t('settings.showTagsView') }}</span>
-        <el-switch
-          v-model="showTagsView"
-          class="drawer-switch"
-        />
+        <el-switch v-model="showTagsView" class="drawer-switch" />
       </div>
 
       <div class="drawer-item">
         <span>{{ $t('settings.showSidebarLogo') }}</span>
-        <el-switch
-          v-model="showSidebarLogo"
-          class="drawer-switch"
-        />
+        <el-switch v-model="showSidebarLogo" class="drawer-switch" />
       </div>
 
       <div class="drawer-item">
         <span>{{ $t('settings.fixedHeader') }}</span>
-        <el-switch
-          v-model="fixedHeader"
-          class="drawer-switch"
-        />
+        <el-switch v-model="fixedHeader" class="drawer-switch" />
       </div>
 
       <div class="drawer-item">
         <span>{{ $t('settings.sidebarTextTheme') }}</span>
-        <el-switch
-          v-model="sidebarTextTheme"
-          class="drawer-switch"
-        />
+        <el-switch v-model="sidebarTextTheme" class="drawer-switch" />
       </div>
     </div>
   </div>
@@ -56,8 +44,8 @@ import ThemePicker from '@/components/ThemePicker/index.vue'
 @Component({
   name: 'Settings',
   components: {
-    ThemePicker
-  }
+    ThemePicker,
+  },
 })
 export default class extends Vue {
   get fixedHeader() {

@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="{'hidden': hidden}"
-    class="pagination-container"
-  >
+  <div :class="{ hidden: hidden }" class="pagination-container">
     <el-pagination
       :background="background"
       :current-page.sync="currentPage"
@@ -21,7 +18,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'Pagination'
+  name: 'Pagination',
 })
 export default class extends Vue {
   @Prop({ required: true }) private total!: number

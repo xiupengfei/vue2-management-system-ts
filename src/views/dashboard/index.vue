@@ -5,10 +5,7 @@
       <i18n path="route.dashboard" />
     </div>
     <ul>
-      <li
-        v-for="i in 500"
-        :key="i"
-      >
+      <li v-for="i in 500" :key="i">
         {{ i }}
       </li>
     </ul>
@@ -21,7 +18,7 @@ import { UserModule } from '@/store/modules/user'
 
 @Component({
   name: 'Dashboard',
-  components: {}
+  components: {},
 })
 export default class extends Vue {
   private currentRole = 'admin-dashboard'
@@ -37,6 +34,4 @@ export default class extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

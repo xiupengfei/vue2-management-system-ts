@@ -3,7 +3,7 @@ export default {
     dashboard: 'Dashboard',
     permission: 'Permission',
     pagePermission: 'Page Permission',
-    directivePermission: 'Directive Permission'
+    directivePermission: 'Directive Permission',
   },
   navbar: {
     logOut: 'Log Out',
@@ -11,7 +11,7 @@ export default {
     github: 'Github',
     theme: 'Theme',
     size: 'Global Size',
-    profile: 'Profile'
+    profile: 'Profile',
   },
   login: {
     title: 'Login Form',
@@ -20,7 +20,8 @@ export default {
     password: 'Password',
     any: 'any',
     thirdparty: 'Or connect with',
-    thirdpartyTips: 'Can not be simulated on local, so please combine you own business simulation! ! !'
+    thirdpartyTips:
+      'Can not be simulated on local, so please combine you own business simulation! ! !',
   },
   permission: {
     createRole: 'New Role',
@@ -30,18 +31,18 @@ export default {
     tips: 'In some cases, using v-permission will have no effect. For example: Element-UI  el-tab or el-table-column and other scenes that dynamically render dom. You can only do this with v-if.',
     delete: 'Delete',
     confirm: 'Confirm',
-    cancel: 'Cancel'
+    cancel: 'Cancel',
   },
   theme: {
     change: 'Change Theme',
     documentation: 'Theme documentation',
-    tips: 'Tips: It is different from the theme-pick on the navbar is two different skinning methods, each with different application scenarios. Refer to the documentation for details.'
+    tips: 'Tips: It is different from the theme-pick on the navbar is two different skinning methods, each with different application scenarios. Refer to the documentation for details.',
   },
   tagsView: {
     refresh: 'Refresh',
     close: 'Close',
     closeOthers: 'Close Others',
-    closeAll: 'Close All'
+    closeAll: 'Close All',
   },
   settings: {
     title: 'Page style setting',
@@ -49,6 +50,6 @@ export default {
     showTagsView: 'Open Tags-View',
     showSidebarLogo: 'Sidebar Logo',
     fixedHeader: 'Fixed Header',
-    sidebarTextTheme: 'Sidebar Text Theme'
-  }
+    sidebarTextTheme: 'Sidebar Text Theme',
+  },
 }

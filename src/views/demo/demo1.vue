@@ -1,9 +1,7 @@
 <template>
   <div class="app-container">
     Demo
-    <button @click="text">
-      btn
-    </button>
+    <button @click="text">btn</button>
   </div>
 </template>
 
@@ -13,12 +11,12 @@ import axios from 'axios'
 
 @Component({
   name: 'PagePermission',
-  components: {}
+  components: {},
 })
 export default class extends Vue {
   private text() {
     axios.post('http://10.10.1.166:8280/dmp/v1.0/am/send', {
-      msg: 'zhangsan'
+      msg: 'zhangsan',
     })
   }
 }

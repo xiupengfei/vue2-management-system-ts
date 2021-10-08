@@ -6,7 +6,7 @@ export const articleStatusFilter = (status: string) => {
   const statusMap: { [key: string]: string } = {
     published: 'success',
     draft: 'info',
-    deleted: 'danger'
+    deleted: 'danger',
   }
   return statusMap[status]
 }

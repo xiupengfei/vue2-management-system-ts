@@ -4,7 +4,7 @@
  * @Author: pengfei.xiu
  * @Date: 2021-07-10 14:47:56
  * @LastEditors: pengfei.xiu
- * @LastEditTime: 2021-10-08 14:35:10
+ * @LastEditTime: 2021-10-08 17:13:52
  */
 import 'nprogress/nprogress.css'
 import NProgress from 'nprogress'
@@ -30,7 +30,7 @@ const getPageTitle = (key: string) => {
   return `${settings.title}`
 }
 
-router.beforeEach(async(to: Route, _: Route, next: any) => {
+router.beforeEach(async (to: Route, _: Route, next: any) => {
   NProgress.start()
 
   // 检测用户是否登录
@@ -50,7 +50,7 @@ router.beforeEach(async(to: Route, _: Route, next: any) => {
           PermissionModule.GenerateRoutes(roles)
           // 动态添加可访问路由
           // router.addRoutes(PermissionModule.dynamicRoutes)
-          PermissionModule.dynamicRoutes.forEach(r => {
+          PermissionModule.dynamicRoutes.forEach((r) => {
             router.addRoute(r)
           })
           // 设置replace: true, 导航就不会留下历史记录

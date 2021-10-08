@@ -1,23 +1,17 @@
 <template>
-  <div
-    id="tags-view-container"
-    class="tags-view-container"
-  >
-    <scroll-pane
-      ref="scrollPane"
-      class="tags-view-wrapper"
-    >
+  <div id="tags-view-container" class="tags-view-container">
+    <scroll-pane ref="scrollPane" class="tags-view-wrapper">
       <router-link
         v-for="tag in visitedViews"
         ref="tag"
         :key="tag.path"
         custom
-        :to="{path: tag.path, query: tag.query, fullPath: tag.fullPath}"
+        :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }"
       >
         <span
           class="tags-view-item"
           :class="isActive(tag) ? 'active' : ''"
-          @click.middle="!isAffix(tag)?closeSelectedTag(tag):''"
+          @click.middle="!isAffix(tag) ? closeSelectedTag(tag) : ''"
           @contextmenu.prevent="openMenu(tag, $event)"
         >
           {{ $t('route.' + tag.meta.title) }}
@@ -29,18 +23,11 @@
         </span>
       </router-link>
     </scroll-pane>
-    <ul
-      v-show="visible"
-      :style="{left: left+'px', top: top+'px'}"
-      class="contextmenu"
-    >
+    <ul v-show="visible" :style="{ left: left + 'px', top: top + 'px' }" class="contextmenu">
       <li @click="refreshSelectedTag(selectedTag)">
         {{ $t('tagsView.refresh') }}
       </li>
-      <li
-        v-if="!isAffix(selectedTag)"
-        @click="closeSelectedTag(selectedTag)"
-      >
+      <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">
         {{ $t('tagsView.close') }}
       </li>
       <li @click="closeOthersTags">
@@ -65,8 +52,8 @@ import { TagsView } from '..'
 @Component({
   name: 'TagsView',
   components: {
-    ScrollPane
-  }
+    ScrollPane,
+  },
 })
 export default class extends Vue {
   private visible: boolean = false
@@ -113,14 +100,14 @@ export default class extends Vue {
 
   private filterAffixTags(routes: RouteConfig[], basePath = '/') {
     let tags: ITagView[] = []
-    routes.forEach(route => {
+    routes.forEach((route) => {
       if (route.meta && route.meta.affix) {
         const tagPath = path.resolve(basePath, route.path)
         tags.push({
           fullPath: tagPath,
           path: tagPath,
           name: route.name as string,
-          meta: { ...route.meta }
+          meta: { ...route.meta },
         })
       }
       if (route.children) {
@@ -156,7 +143,7 @@ export default class extends Vue {
     this.$nextTick(() => {
       for (const tag of tags) {
         if ((tag.to as ITagView).path === this.$route.path) {
-          (this.$refs.scrollPane as ScrollPane).moveToTarget(tag as any)
+          ;(this.$refs.scrollPane as ScrollPane).moveToTarget(tag as any)
           // When query is different then update
           if ((tag.to as ITagView).fullPath !== this.$route.fullPath) {
             TagsViewModule.updateVisitedView(this.$route as unknown as ITagView)
@@ -172,7 +159,7 @@ export default class extends Vue {
     const { fullPath } = view
     this.$nextTick(() => {
       this.$router.replace({
-        path: '/redirect' + fullPath
+        path: '/redirect' + fullPath,
       })
     })
   }
@@ -194,7 +181,7 @@ export default class extends Vue {
 
   private closeAllTags(view: ITagView) {
     TagsViewModule.delAllViews()
-    if (this.affixTags.some(tag => tag.path === this.$route.path)) {
+    if (this.affixTags.some((tag) => tag.path === this.$route.path)) {
       return
     }
     this.toLastView(TagsViewModule.visitedViews, view)
@@ -263,10 +250,9 @@ export default class extends Vue {
     }
   }
 }
-
 </style>
 <style lang="scss" scoped>
-@import "~@/styles/element-variables.scss";
+@import '~@/styles/element-variables.scss';
 
 .tags-view-container {
   height: 34px;

@@ -11,8 +11,8 @@ import SwitchRoles from './components/SwitchRoles.vue'
 @Component({
   name: 'PagePermission',
   components: {
-    SwitchRoles
-  }
+    SwitchRoles,
+  },
 })
 export default class extends Vue {
   private handleRolesChange() {

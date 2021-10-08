@@ -7,7 +7,7 @@ const UNKNOWN_ERROR = '未知错误!'
 // 创建 axios 实例
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
-  timeout: 30000
+  timeout: 30000,
   // withCredentials: true // 跨域请求时发送cookie
 })
 
@@ -15,19 +15,19 @@ const service = axios.create({
 service.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     if (UserModule.token) {
-      (config as any).headers['Authorization'] = UserModule.token
+      ;(config as any).headers['Authorization'] = UserModule.token
     }
     return config
   },
   (error) => {
     Promise.reject(error)
-  }
+  },
 )
 
 // 响应拦截器
 service.interceptors.response.use(
-  response => response.data,
-  error => {
+  (response) => response.data,
+  (error) => {
     // timeout of 5000ms exceeded
     const re = /^timeout of (\d+)ms exceeded$/
     if (re.test(error.message)) {
@@ -44,7 +44,7 @@ service.interceptors.response.use(
         MessageBox.alert('令牌超时需重新登录', '提示:', {
           confirmButtonText: '重新登录',
           showClose: false,
-          type: 'warning'
+          type: 'warning',
         }).then(() => {
           UserModule.ResetToken()
           setTimeout(() => {
@@ -68,12 +68,12 @@ service.interceptors.response.use(
       Message({
         message: error.message,
         type: 'error',
-        duration: 5 * 1000
+        duration: 5 * 1000,
       })
     }
 
     return Promise.reject(error)
-  }
+  },
 )
 
 export default service

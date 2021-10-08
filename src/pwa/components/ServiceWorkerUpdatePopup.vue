@@ -2,7 +2,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'ServiceWorkerUpdatePopup'
+  name: 'ServiceWorkerUpdatePopup',
 })
 export default class extends Vue {
   private refreshing = false
@@ -37,17 +37,21 @@ export default class extends Vue {
       message: h('div', { class: 'sw-update-popup' }, [
         this.notificationText,
         h('br'),
-        h('button', {
-          on: {
-            click: (e: Event) => {
-              e.preventDefault()
-              this.refreshApp()
-            }
-          }
-        }, this.refreshButtonText)
+        h(
+          'button',
+          {
+            on: {
+              click: (e: Event) => {
+                e.preventDefault()
+                this.refreshApp()
+              },
+            },
+          },
+          this.refreshButtonText,
+        ),
       ]),
       position: 'bottom-right',
-      duration: 0
+      duration: 0,
     })
   }
 

@@ -18,14 +18,14 @@ module.exports = {
     'selector-pseudo-class-no-unknown': [
       true,
       {
-        'ignorePseudoClasses': ['global', 'export']
-      }
+        ignorePseudoClasses: ['global', 'export'],
+      },
     ],
     'property-no-unknown': [
       true,
       {
-        'ignoreProperties': ['theme', '/^menu.*/', '/^custom.*/']
-      }
+        ignoreProperties: ['theme', '/^menu.*/', '/^custom.*/'],
+      },
     ],
   },
 }

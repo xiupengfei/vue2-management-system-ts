@@ -23,7 +23,7 @@ export const parseTime = (time?: object | string | number, cFormat?: string): st
     h: date.getHours(),
     i: date.getMinutes(),
     s: date.getSeconds(),
-    a: date.getDay()
+    a: date.getDay(),
   }
   const timeStr = format.replace(/{([ymdhisa])+}/g, (result, key) => {
     const value = formatObj[key]
@@ -90,13 +90,15 @@ export const parseTime = (time?: object | string | number, cFormat?: string): st
 
 // Format and filter json data using filterKeys array
 export const formatJson = (filterKeys: any, jsonData: any) =>
-  jsonData.map((data: any) => filterKeys.map((key: string) => {
-    if (key === 'timestamp') {
-      return parseTime(data[key])
-    } else {
-      return data[key]
-    }
-  }))
+  jsonData.map((data: any) =>
+    filterKeys.map((key: string) => {
+      if (key === 'timestamp') {
+        return parseTime(data[key])
+      } else {
+        return data[key]
+      }
+    }),
+  )
 
 // Check if an element has a class
 export const hasClass = (ele: HTMLElement, className: string) => {

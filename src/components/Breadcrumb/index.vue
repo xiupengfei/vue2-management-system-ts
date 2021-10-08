@@ -1,23 +1,14 @@
 <template>
-  <el-breadcrumb
-    class="app-breadcrumb"
-    separator="/"
-  >
+  <el-breadcrumb class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
-      <el-breadcrumb-item
-        v-for="(item, index) in breadcrumbs"
-        :key="item.path"
-      >
+      <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
         <span
-          v-if="item.redirect === 'noredirect' || index === breadcrumbs.length-1"
+          v-if="item.redirect === 'noredirect' || index === breadcrumbs.length - 1"
           class="no-redirect"
         >
           {{ $t('route.' + item.meta.title) }}
         </span>
-        <a
-          v-else
-          @click.prevent="handleLink(item)"
-        >
+        <a v-else @click.prevent="handleLink(item)">
           {{ $t('route.' + item.meta.title) }}
         </a>
       </el-breadcrumb-item>
@@ -31,7 +22,7 @@ import { Component, Vue, Watch } from 'vue-property-decorator'
 import { RouteRecord, Route } from 'vue-router'
 
 @Component({
-  name: 'Breadcrumb'
+  name: 'Breadcrumb',
 })
 export default class extends Vue {
   private breadcrumbs: RouteRecord[] = []
@@ -52,10 +43,12 @@ export default class extends Vue {
     let matched = this.$route.matched.filter((item) => item.meta && item.meta.title)
     const first = matched[0]
     if (!this.isDashboard(first)) {
-      matched = [{
-        path: '/dashboard',
-        meta: { title: 'dashboard' }
-      } as unknown as RouteRecord].concat(matched)
+      matched = [
+        {
+          path: '/dashboard',
+          meta: { title: 'dashboard' },
+        } as unknown as RouteRecord,
+      ].concat(matched)
     }
     this.breadcrumbs = matched.filter((item) => {
       return item.meta && item.meta.title && item.meta.breadcrumb !== false

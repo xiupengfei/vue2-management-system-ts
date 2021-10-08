@@ -11,8 +11,8 @@
     "mock": "cd mock && ts-node-dev mock-server.ts",
     "svg": "vsvg -s ./src/icons/svg -t ./src/icons/components --ext ts --es6",
     "lint:vue": "vue-cli-service lint",
-    "lint:css": "stylelint src/**/*.{css,scss} --syntax scss --fix",
-    "lint:style": "stylelint src/**/*.{html,vue} --custom-syntax postcss-html --fix",
+    "lint:css": "stylelint --cache src/**/*.{css,scss} --syntax scss --fix",
+    "lint:style": "stylelint --cache src/**/*.{html,vue} --custom-syntax postcss-html --fix",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -57,6 +57,7 @@
     "@vue/cli-plugin-unit-jest": "^4.0.5",
     "@vue/cli-plugin-vuex": "^4.0.5",
     "@vue/cli-service": "^4.0.5",
+    "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/eslint-config-typescript": "^4.0.0",
     "@vue/test-utils": "^1.0.0-beta.30",
@@ -65,7 +66,7 @@
     "concurrently": "^5.0.0",
     "cors": "^2.8.5",
     "dart-sass": "^1.25.0",
-    "eslint": "^6.7.2",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^6.0.1",

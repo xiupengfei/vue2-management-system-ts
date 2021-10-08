@@ -1,1 +1,1 @@
-declare module 'element-ui/lib/locale/lang/*';
+declare module 'element-ui/lib/locale/lang/*'

@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion: 
+ * @Version: v0.1
+ * @Author: pengfei.xiu
+ * @Date: 2021-07-10 14:48:02
+ * @LastEditors: pengfei.xiu
+ * @LastEditTime: 2021-10-08 20:15:38
+-->
 <template>
   <div class="dashboard-container">
     {{ $t('route.dashboard') }} {{ currentRole }}
@@ -5,7 +13,7 @@
       <i18n path="route.dashboard" />
     </div>
     <ul>
-      <li v-for="i in 500" :key="i">
+      <li v-for="i in 400" :key="i">
         {{ i }}
       </li>
     </ul>

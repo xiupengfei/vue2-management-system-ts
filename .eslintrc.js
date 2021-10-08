@@ -4,7 +4,7 @@
  * @Author: pengfei.xiu
  * @Date: 2021-07-10 14:47:42
  * @LastEditors: pengfei.xiu
- * @LastEditTime: 2021-10-08 17:21:06
+ * @LastEditTime: 2021-10-08 20:17:05
  */
 module.exports = {
   root: true,
@@ -37,6 +37,7 @@ module.exports = {
     'vue/comma-dangle': 'off',
     'vue/max-attributes-per-line': 'off',
     'vue/object-curly-spacing': 'off',
+    'prettier/prettier': 'off',
   },
   parserOptions: {
     parser: '@typescript-eslint/parser',

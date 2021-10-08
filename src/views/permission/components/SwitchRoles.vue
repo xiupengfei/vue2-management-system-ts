@@ -1,6 +1,14 @@
+<!--
+ * @Descripttion: 
+ * @Version: v0.1
+ * @Author: pengfei.xiu
+ * @Date: 2021-10-08 18:21:08
+ * @LastEditors: pengfei.xiu
+ * @LastEditTime: 2021-10-08 20:15:24
+-->
 <template>
   <div>
-    <div style="margin-bottom: 15px;">{{ $t('permission.roles') }}： {{ roles }}</div>
+    <div style="margin-bottom: 15px">{{ $t('permission.roles') }}： {{ roles }}</div>
     {{ $t('permission.switchRoles') }}：
     <el-radio-group v-model="switchRoles">
       <el-radio-button label="editor" />

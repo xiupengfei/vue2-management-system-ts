@@ -11,7 +11,10 @@
       label-position="left"
     >
       <div class="title-container">
-        <h3 class="title">{{ $t('login.title') }} {{ version }}</h3>
+        <h3 class="title">
+          {{ $t('login.title') }}
+          {{ version }}
+        </h3>
         <lang-select class="set-language" placement="right" />
       </div>
 
@@ -48,20 +51,26 @@
       <el-button
         :loading="loading"
         type="primary"
-        style="width: 100%; margin-bottom: 30px;"
+        style="width: 100%; margin-bottom: 30px"
         @click.native.prevent="handleLogin"
       >
         {{ $t('login.logIn') }}
       </el-button>
     </el-form>
-    <div style="position: absolute; left: 100px; top: 50px;">
+    <div style="position: absolute; left: 100px; top: 50px">
       <div class="tips">
         <span>{{ $t('login.username') }} : admin </span>
-        <span>{{ $t('login.password') }} : {{ $t('login.any') }} </span>
+        <span
+          >{{ $t('login.password') }} :
+          {{ $t('login.any') }}
+        </span>
       </div>
       <div class="tips">
         <span>{{ $t('login.username') }} : editor </span>
-        <span>{{ $t('login.password') }} : {{ $t('login.any') }} </span>
+        <span
+          >{{ $t('login.password') }} :
+          {{ $t('login.any') }}
+        </span>
       </div>
     </div>
   </div>
@@ -104,8 +113,18 @@ export default class extends Vue {
     password: '111111',
   }
   private loginRules = {
-    username: [{ validator: this.validateUsername, trigger: ['blur', 'change'] }],
-    password: [{ validator: this.validatePassword, trigger: ['blur', 'change'] }],
+    username: [
+      {
+        validator: this.validateUsername,
+        trigger: ['blur', 'change'],
+      },
+    ],
+    password: [
+      {
+        validator: this.validatePassword,
+        trigger: ['blur', 'change'],
+      },
+    ],
   }
   private passwordType = 'password'
   private loading = false

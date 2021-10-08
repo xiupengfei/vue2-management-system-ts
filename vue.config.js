@@ -1,10 +1,22 @@
+/*
+ * @Descripttion:
+ * @Version: v0.1
+ * @Author: pengfei.xiu
+ * @Date: 2021-07-10 14:47:42
+ * @LastEditors: pengfei.xiu
+ * @LastEditTime: 2021-10-08 20:09:12
+ */
 const path = require('path')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+const proxy = require('./proxy.js')
 
 const name = '系统管理Demo'
 
+const isDev = process.env.NODE_ENV === 'development'
+
 module.exports = {
   publicPath: './',
-  lintOnSave: process.env.NODE_ENV === 'development',
+  lintOnSave: isDev,
   productionSourceMap: false,
   devServer: {
     port: process.env.VUE_APP_PORT,
@@ -14,16 +26,7 @@ module.exports = {
       errors: true,
     },
     progress: false,
-    proxy: {
-      [process.env.VUE_APP_BASE_API]: {
-        target: process.env.VUE_APP_BASE_API,
-        changeOrigin: true,
-        ws: true, // proxy websockets
-        pathRewrite: {
-          ['^' + process.env.VUE_APP_BASE_API]: '',
-        },
-      },
-    },
+    proxy,
   },
   pluginOptions: {
     'style-resources-loader': {
@@ -40,9 +43,9 @@ module.exports = {
     config.set('name', name)
 
     // https://webpack.js.org/configuration/devtool/#development
-    config.when(process.env.NODE_ENV === 'development', (config) =>
-      config.devtool('cheap-eval-source-map'),
-    )
+    config.when(isDev, (config) => config.devtool('cheap-eval-source-map'))
+
+    config.plugin('cache').use(HardSourceWebpackPlugin)
 
     // remove vue-cli-service's progress output
     config.plugins.delete('progress')
@@ -56,7 +59,7 @@ module.exports = {
         },
       ])
 
-    config.when(process.env.NODE_ENV !== 'development', (config) => {
+    config.when(!isDev, (config) => {
       config.optimization.splitChunks({
         chunks: 'all',
         cacheGroups: {
